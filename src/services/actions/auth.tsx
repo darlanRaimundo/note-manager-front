@@ -1,0 +1,84 @@
+import { SignupFormSchema, FormState } from "@/lib/definitions";
+import { createSession, deleteSession } from "@/lib/session";
+import { redirect } from "next/navigation";
+
+export async function signup(state: FormState, formData: FormData) {
+  // Validate form fields
+  const validatedFields = SignupFormSchema.safeParse({
+    name: formData.get("name"),
+    email: formData.get("email"),
+    password: formData.get("password"),
+  });
+
+  // If any form fields are invalid, return early
+  if (!validatedFields.success) {
+    return {
+      errors: validatedFields.error.flatten().fieldErrors,
+    };
+  }
+
+  // Prepare the request body
+  const body = JSON.stringify({
+    name: validatedFields.data.name,
+    email: validatedFields.data.email,
+    password: validatedFields.data.password,
+  });
+
+  // Insert the user into the database calling an API
+  const response = await fetch("http://localhost:3000/auth/signUp", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body,
+  });
+
+  const data = await response.json();
+
+  // Create user session
+  await createSession(data.access_token);
+
+  // Redirect the user to the Manager page
+  redirect("/manager");
+}
+
+export async function login(state: FormState, formData: FormData) {
+  // Validate form fields
+  const validatedFields = SignupFormSchema.safeParse({
+    email: formData.get("email"),
+    password: formData.get("password"),
+  });
+
+  // If any form fields are invalid, return early
+  if (!validatedFields.success) {
+    return {
+      errors: validatedFields.error.flatten().fieldErrors,
+    };
+  }
+
+  // Prepare the request body
+  const body = JSON.stringify({
+    name: validatedFields.data.name,
+    email: validatedFields.data.email,
+    password: validatedFields.data.password,
+  });
+
+  // Log the user calling an API
+  const response = await fetch("http://localhost:3000/auth/login", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body,
+  });
+
+  const data = await response.json();
+  // Create user session
+  await createSession(data.access_token);
+  redirect("/manager");
+}
+
+export async function logout() {
+  deleteSession();
+  redirect("/login");
+}
