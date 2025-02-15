@@ -1,5 +1,5 @@
-import { SignupForm } from "./ui/signup-form";
+import Login from "./login/page";
 
 export default function Page() {
-  return <SignupForm />;
+  return <Login />;
 }

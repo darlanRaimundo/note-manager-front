@@ -3,16 +3,29 @@ import { z } from "zod";
 export const SignupFormSchema = z.object({
   name: z
     .string()
-    .min(2, { message: "Name must be at least 2 characters long." })
+    .min(2, { message: "O nome deve ter pelo menos 2 caracteres" })
     .trim(),
-  email: z.string().email({ message: "Please enter a valid email." }).trim(),
+  email: z.string().email({ message: "Insira um e-mail válido" }).trim(),
   password: z
     .string()
-    .min(8, { message: "Be at least 8 characters long" })
-    .regex(/[a-zA-Z]/, { message: "Contain at least one letter." })
-    .regex(/[0-9]/, { message: "Contain at least one number." })
+    .min(8, { message: "Ter pelo menos 8 caracteres" })
+    .regex(/[a-zA-Z]/, { message: "Conter pelo menos uma letra" })
+    .regex(/[0-9]/, { message: "Conter pelo menos um número" })
     .regex(/[^a-zA-Z0-9]/, {
-      message: "Contain at least one special character.",
+      message: "Conter pelo menos um caractere especial",
+    })
+    .trim(),
+});
+
+export const SigninFormSchema = z.object({
+  email: z.string().email({ message: "Insira um e-mail válido" }).trim(),
+  password: z
+    .string()
+    .min(8, { message: "Ter pelo menos 8 caracteres" })
+    .regex(/[a-zA-Z]/, { message: "Conter pelo menos uma letra" })
+    .regex(/[0-9]/, { message: "Conter pelo menos um número" })
+    .regex(/[^a-zA-Z0-9]/, {
+      message: "Conter pelo menos um caractere especial",
     })
     .trim(),
 });

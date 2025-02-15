@@ -1,4 +1,8 @@
-import { SignupFormSchema, FormState } from "@/lib/definitions";
+import {
+  SignupFormSchema,
+  FormState,
+  SigninFormSchema,
+} from "@/lib/definitions";
 import { createSession, deleteSession } from "@/lib/session";
 import { redirect } from "next/navigation";
 
@@ -35,16 +39,18 @@ export async function signup(state: FormState, formData: FormData) {
 
   const data = await response.json();
 
-  // Create user session
-  await createSession(data.access_token);
-
-  // Redirect the user to the Manager page
-  redirect("/manager");
+  if (!data.access_token) {
+    return { error: "Email ou Senha invalido!" };
+  } else {
+    // Create user session
+    await createSession(data.access_token);
+    redirect("/manager");
+  }
 }
 
 export async function login(state: FormState, formData: FormData) {
   // Validate form fields
-  const validatedFields = SignupFormSchema.safeParse({
+  const validatedFields = SigninFormSchema.safeParse({
     email: formData.get("email"),
     password: formData.get("password"),
   });
@@ -58,9 +64,8 @@ export async function login(state: FormState, formData: FormData) {
 
   // Prepare the request body
   const body = JSON.stringify({
-    name: validatedFields.data.name,
-    email: validatedFields.data.email,
-    password: validatedFields.data.password,
+    email: validatedFields.data?.email,
+    password: validatedFields.data?.password,
   });
 
   // Log the user calling an API
@@ -73,9 +78,14 @@ export async function login(state: FormState, formData: FormData) {
   });
 
   const data = await response.json();
-  // Create user session
-  await createSession(data.access_token);
-  redirect("/manager");
+
+  if (!data.access_token) {
+    return { error: "Email ou Senha invalido!" };
+  } else {
+    // Create user session
+    await createSession(data.access_token);
+    redirect("/manager");
+  }
 }
 
 export async function logout() {

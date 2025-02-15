@@ -1,28 +1,20 @@
 "use client";
 
-import { signup } from "@/services/actions/auth";
 import { useActionState } from "react";
-import { TextField, Button, Container, Typography, Box } from "@mui/material";
+import { login } from "@/services/actions/auth";
+import { Box, Button, Container, TextField, Typography } from "@mui/material";
 import { redirect } from "next/navigation";
 
-export const SignupForm = () => {
-  const [state, action, pending] = useActionState(signup, undefined);
+export default function Login() {
+  const [state, action, pending] = useActionState(login, undefined);
 
   return (
     <Container maxWidth="xs">
       <Box sx={{ mt: 5, p: 3, boxShadow: 3, borderRadius: 2 }}>
         <Typography variant="h4" gutterBottom>
-          Cadastro
+          Login
         </Typography>
         <form action={action}>
-          <TextField
-            fullWidth
-            label="Nome"
-            name="name"
-            variant="outlined"
-            margin="normal"
-          />
-          {state?.errors?.name && <p>{state.errors.name}</p>}
           <TextField
             fullWidth
             label="E-mail"
@@ -58,7 +50,7 @@ export const SignupForm = () => {
             sx={{ mt: 2 }}
             disabled={pending}
           >
-            Cadastrar
+            Entrar
           </Button>
         </form>
         <Button
@@ -68,12 +60,25 @@ export const SignupForm = () => {
           fullWidth
           sx={{ mt: 2 }}
           onClick={() => {
-            redirect("/login");
+            redirect("/signup");
           }}
         >
-          Já tem uma conta? Faça Login
+          Não tem uma conta? Cadastre-se
         </Button>
       </Box>
     </Container>
   );
-};
+}
+
+// export default function Login() {
+//   return (
+//     <SignInPage
+//       signIn={login}
+//       providers={providers}
+//       slotProps={{ emailField: { autoFocus: false } }}
+//       slots={{
+//         signUpLink: SignUpLink,
+//       }}
+//     />
+//   );
+// }
