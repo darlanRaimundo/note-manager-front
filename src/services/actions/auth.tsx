@@ -40,7 +40,7 @@ export async function signup(state: FormState, formData: FormData) {
   const data = await response.json();
 
   if (!data.access_token) {
-    return { error: "Email ou Senha invalido!" };
+    return { errors: "Email ou Senha invalido!" };
   } else {
     // Create user session
     await createSession(data.access_token);
@@ -80,7 +80,7 @@ export async function login(state: FormState, formData: FormData) {
   const data = await response.json();
 
   if (!data.access_token) {
-    return { error: "Email ou Senha invalido!" };
+    return { error: data.message };
   } else {
     // Create user session
     await createSession(data.access_token);

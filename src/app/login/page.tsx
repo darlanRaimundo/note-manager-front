@@ -4,6 +4,7 @@ import { useActionState } from "react";
 import { login } from "@/services/actions/auth";
 import { Box, Button, Container, TextField, Typography } from "@mui/material";
 import { redirect } from "next/navigation";
+import SnackbarComponent from "../components/show-snackbar";
 
 export default function Login() {
   const [state, action, pending] = useActionState(login, undefined);
@@ -66,6 +67,7 @@ export default function Login() {
           Não tem uma conta? Cadastre-se
         </Button>
       </Box>
+      {state?.error && <SnackbarComponent message={state?.error} />}
     </Container>
   );
 }
