@@ -71,16 +71,3 @@ export default function Login() {
     </Container>
   );
 }
-
-// export default function Login() {
-//   return (
-//     <SignInPage
-//       signIn={login}
-//       providers={providers}
-//       slotProps={{ emailField: { autoFocus: false } }}
-//       slots={{
-//         signUpLink: SignUpLink,
-//       }}
-//     />
-//   );
-// }
