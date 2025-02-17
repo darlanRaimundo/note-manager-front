@@ -24,7 +24,6 @@ import {
 import { addNewNote } from "@/services/addNewNote";
 import { updateNote } from "@/services/note/updateNote";
 import { deleteNote } from "@/services/note/deleteNote";
-import { Stack } from "@mui/material";
 
 export interface DataTableProps {
   data: Array<Note>;
@@ -84,11 +83,9 @@ export default function DataTable({ data, userId }: DataTableProps) {
 
   const handleDeleteClick = (id: GridRowId) => async () => {
     const rowToDelete = rows.find((element) => element.id == id);
-    console.log("rowToDelete: ", rowToDelete);
     setRows(rows.filter((row) => row.id !== id));
 
-    const retorno = await deleteNote(rowToDelete?._id);
-    console.log("retorno: ", retorno);
+    await deleteNote(rowToDelete?._id);
   };
 
   const handleCancelClick = (id: GridRowId) => () => {
@@ -108,7 +105,7 @@ export default function DataTable({ data, userId }: DataTableProps) {
     const updatedRow: Row = { ...(newRow as Row), isNew: false };
 
     const _rows = rows.map((row) => (row.id === newRow.id ? updatedRow : row));
-    console.log("_rows: ", _rows);
+
     setRows(_rows);
 
     if (createInDB) {
