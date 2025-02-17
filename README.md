@@ -1,36 +1,54 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Note Manager Frontend
 
-## Getting Started
+O **Note Manager Frontend** é a interface do usuário para o projeto de gerenciamento de notas. Ele se comunica com a API desenvolvida em **Node.js com NestJS** para realizar operações de login, cadastro de usuários e gerenciamento de notas.
 
-First, run the development server:
+## Funcionalidades
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **Login e Cadastro de Usuários**: Permite aos usuários criar uma conta e fazer login para acessar as suas notas.
+- **Gerenciamento de Notas**: Usuários autenticados podem criar, editar e excluir notas.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Tecnologias Utilizadas
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **React.js**: Biblioteca principal para construção da interface.
+- **Next.js**: Framework React para renderização do lado do servidor e geração de páginas estáticas.
+- **TypeScript**: Linguagem que adiciona tipagem estática ao JavaScript, aumentando a robustez e a manutenibilidade do código.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Como Rodar o Projeto
 
-## Learn More
+1. Clone o repositório:
 
-To learn more about Next.js, take a look at the following resources:
+   `git clone https://github.com/darlanRaimundo/note-manager-front.git`
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+   `cd note-manager-front`
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+2. Instale as dependências:
 
-## Deploy on Vercel
+   Certifique-se de ter o **Node.js** instalado, depois rode o seguinte comando:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+   `npm install`
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+3. Variáveis de Ambiente:
+
+   Crie um arquivo `.env` na raiz do projeto e adicione a URL da API backend:
+
+   `REACT_APP_API_URL=http://localhost:3000`
+
+4. Rode o projeto:
+
+   Depois de instalar as dependências e configurar o arquivo `.env`, execute o comando:
+
+   `npm run dev`
+
+   A aplicação será iniciada e estará acessível em [http://localhost:3000](http://localhost:3000).
+
+## Estrutura do Projeto
+
+- **src/app**: Contém as páginas principais da aplicação.
+- **src/components**: Componentes reutilizáveis da interface, como botões, campos de formulário, etc.
+- **src/lib**: Contém funções e módulos para o gerenciamento de sessão e definições de tipos e schemas.
+- **src/services**: Arquivos responsáveis pelas requisições à API backend, como funções para login, cadastro e manipulação de notas.
+- **src/middleware**: Contém a lógica para verificar o cookie e garantir que o usuário está autenticado antes de acessar as páginas protegidas.
+
+## Licença
+
+Este projeto está licenciado sob a MIT License - veja o arquivo [LICENSE](LICENSE) para mais detalhes.
