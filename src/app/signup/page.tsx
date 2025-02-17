@@ -9,7 +9,7 @@ export default function Page() {
   const [state, action, pending] = useActionState(signup, undefined);
 
   return (
-    <Container maxWidth="xs">
+    <Container maxWidth="xs" sx={{ padding: "20px" }}>
       <Box sx={{ mt: 5, p: 3, boxShadow: 3, borderRadius: 2 }}>
         <Typography variant="h4" gutterBottom>
           Cadastro

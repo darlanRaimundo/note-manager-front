@@ -4,13 +4,13 @@ import { useActionState } from "react";
 import { login } from "@/services/actions/auth";
 import { Box, Button, Container, TextField, Typography } from "@mui/material";
 import { redirect } from "next/navigation";
-import SnackbarComponent from "../components/show-snackbar";
+import SnackbarComponent from "../components/showSnackbar";
 
 export default function Login() {
   const [state, action, pending] = useActionState(login, undefined);
 
   return (
-    <Container maxWidth="xs">
+    <Container maxWidth="xs" sx={{ padding: "20px" }}>
       <Box sx={{ mt: 5, p: 3, boxShadow: 3, borderRadius: 2 }}>
         <Typography variant="h4" gutterBottom>
           Login

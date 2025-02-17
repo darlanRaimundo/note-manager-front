@@ -1,5 +1,12 @@
 import { z } from "zod";
 
+export type Note = {
+  _id?: string;
+  title: string;
+  description: string;
+  userId: string;
+};
+
 export const SignupFormSchema = z.object({
   name: z
     .string()
