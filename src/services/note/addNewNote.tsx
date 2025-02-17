@@ -18,7 +18,7 @@ export async function addNewNote(note: Note) {
   });
 
   // Insert the user into the database calling an API
-  const response = await fetch("http://localhost:3000/note", {
+  const response = await fetch(`${process.env.REACT_APP_API_URL}/note`, {
     method: "POST",
     headers,
     body,

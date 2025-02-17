@@ -4,7 +4,7 @@ import { useActionState } from "react";
 import { login } from "@/services/actions/auth";
 import { Box, Button, Container, TextField, Typography } from "@mui/material";
 import { redirect } from "next/navigation";
-import SnackbarComponent from "../components/showSnackbar";
+import SnackbarComponent from "../../components/showSnackbar";
 
 export default function Login() {
   const [state, action, pending] = useActionState(login, undefined);

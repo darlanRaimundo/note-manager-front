@@ -11,11 +11,14 @@ export async function getNotes(userId: string) {
     Authorization: `Bearer ${token?.value}`,
   });
 
-  const response = await fetch(`http://localhost:3000/note/${userId}`, {
-    method: "GET",
-    credentials: "same-origin",
-    headers,
-  });
+  const response = await fetch(
+    `${process.env.REACT_APP_API_URL}/note/${userId}`,
+    {
+      method: "GET",
+      credentials: "same-origin",
+      headers,
+    }
+  );
 
   const data = await response.json();
 

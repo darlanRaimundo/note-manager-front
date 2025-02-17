@@ -1,8 +1,8 @@
 "use client";
 
 import { Box } from "@mui/material";
-import ButtonAppBar from "../components/buttonAppbar";
-import DataTable from "../components/dataTable";
+import ButtonAppBar from "../../components/buttonAppbar";
+import DataTable from "../../components/dataTable";
 import { useEffect, useState } from "react";
 import { getUserData } from "@/services/users/getUserData";
 import { Note } from "@/lib/definitions";

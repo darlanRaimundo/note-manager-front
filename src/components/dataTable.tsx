@@ -21,7 +21,7 @@ import {
   GridRowEditStopReasons,
   GridSlotProps,
 } from "@mui/x-data-grid";
-import { addNewNote } from "@/services/addNewNote";
+import { addNewNote } from "@/services/note/addNewNote";
 import { updateNote } from "@/services/note/updateNote";
 import { deleteNote } from "@/services/note/deleteNote";
 

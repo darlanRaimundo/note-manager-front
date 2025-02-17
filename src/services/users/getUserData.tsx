@@ -9,11 +9,14 @@ export async function getUserData() {
     "Content-type": "application/json",
     Authorization: `Bearer ${token?.value}`,
   });
-  const response = await fetch("http://localhost:3000/auth/profile", {
-    method: "GET",
-    credentials: "same-origin",
-    headers,
-  });
+  const response = await fetch(
+    `${process.env.REACT_APP_API_URL}/auth/profile`,
+    {
+      method: "GET",
+      credentials: "same-origin",
+      headers,
+    }
+  );
 
   const data = await response.json();
 

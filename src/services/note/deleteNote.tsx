@@ -11,7 +11,7 @@ export async function deleteNote(_id?: string) {
   });
 
   // Insert the user into the database calling an API
-  const response = await fetch(`http://localhost:3000/note/${_id}`, {
+  const response = await fetch(`${process.env.REACT_APP_API_URL}/note/${_id}`, {
     method: "DELETE",
     headers,
   });

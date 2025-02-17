@@ -27,9 +27,9 @@ export async function signup(state: FormState, formData: FormData) {
     email: validatedFields.data.email,
     password: validatedFields.data.password,
   });
-
+  console.log(process.env.REACT_APP_API_URL);
   // Insert the user into the database calling an API
-  const response = await fetch("http://localhost:3000/auth/signUp", {
+  const response = await fetch(`${process.env.REACT_APP_API_URL}/auth/signUp`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -69,7 +69,7 @@ export async function login(state: FormState, formData: FormData) {
   });
 
   // Log the user calling an API
-  const response = await fetch("http://localhost:3000/auth/login", {
+  const response = await fetch(`${process.env.REACT_APP_API_URL}/auth/login`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
