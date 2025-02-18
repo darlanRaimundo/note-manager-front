@@ -20,10 +20,11 @@ O **Note Manager Frontend** é a interface do usuário para o projeto de gerenci
 ## Como Rodar o Projeto
 
 1. Clone o repositório:
-
+   ```bash
    `git clone https://github.com/darlanRaimundo/note-manager-front.git`
 
    `cd note-manager-front`
+   ```
 
 2. Instale as dependências:
 
