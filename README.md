@@ -21,28 +21,30 @@ O **Note Manager Frontend** é a interface do usuário para o projeto de gerenci
 
 1. Clone o repositório:
    ```bash
-   `git clone https://github.com/darlanRaimundo/note-manager-front.git`
+   git clone https://github.com/darlanRaimundo/note-manager-front.git
 
-   `cd note-manager-front`
+   cd note-manager-front
    ```
 
 2. Instale as dependências:
 
    Certifique-se de ter o **Node.js** instalado, depois rode o seguinte comando:
-
-   `npm install`
-
+   ```bash
+   npm install
+   ```
 3. Variáveis de Ambiente:
 
    Crie um arquivo `.env` na raiz do projeto e adicione a URL da API backend:
+   ```bash
+   REACT_APP_API_URL=http://localhost:3000
+   ```
 
-   `REACT_APP_API_URL=http://localhost:3000`
-
-4. Rode o projeto:
+5. Rode o projeto:
 
    Depois de instalar as dependências e configurar o arquivo `.env`, execute o comando:
-
-   `npm run dev`
+   ```bash
+   npm run dev
+   ```
 
    A aplicação será iniciada e estará acessível em [http://localhost:3000](http://localhost:3000).
 
