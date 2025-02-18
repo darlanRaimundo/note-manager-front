@@ -36,7 +36,7 @@ O **Note Manager Frontend** é a interface do usuário para o projeto de gerenci
 
    Crie um arquivo `.env` na raiz do projeto e adicione a URL da API backend:
    ```bash
-   REACT_APP_API_URL=http://localhost:3000
+   REACT_APP_API_URL=http://localhost:{PORTA DA API}
    ```
 
 5. Rode o projeto:
