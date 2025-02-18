@@ -1,5 +1,9 @@
 # Note Manager Frontend
 
+![GitHub repo size](https://img.shields.io/github/repo-size/darlanRaimundo/note-manager-front)
+![GitHub last commit](https://img.shields.io/github/last-commit/darlanRaimundo/note-manager-front)
+![GitHub license](https://img.shields.io/github/license/darlanRaimundo/note-manager-front)
+
 O **Note Manager Frontend** é a interface do usuário para o projeto de gerenciamento de notas. Ele se comunica com a API desenvolvida em **Node.js com NestJS** para realizar operações de login, cadastro de usuários e gerenciamento de notas.
 
 ## Funcionalidades
